@@ -1,0 +1,12 @@
+{
+  "name": "@mhf-vue/icons",
+  "version": "1.0.0",
+  "licence": "MIT",
+  "main":"./aa-index.js",
+  "browserify": {
+    "transform": [
+      "babelify",
+      "vueify"
+    ]
+  }
+}

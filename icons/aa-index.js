@@ -20,15 +20,18 @@ export function use(Vue, componentList) {
 import IconBase from "./aa-icon-base.vue"
 import IconMenu from "./menu.vue"
 import IconSearch from "./search.vue"
+import IconSquareBracket from "./square-bracket.vue"
 
 export {
   IconBase,
   IconMenu,
   IconSearch,
+  IconSquareBracket,
 }
 
 const components = [
   IconBase,
   IconMenu,
   IconSearch,
+  IconSquareBracket,
 ]

@@ -6,7 +6,17 @@ svg(
     :height="height"
     )
   title(:id="iconName") {{ iconName }} icon
-  g(:fill="fill" :stroke="stroke")
+
+  g(
+      :fill="fill"
+      :fill-opacity="fillOpacity"
+
+      :stroke="stroke"
+      :stroke-width="strokeWidth"
+      :stroke-linecap="strokeLinecap"
+      :stroke-linejoin="strokeLinejoin"
+      :stroke-opacity="strokeOpacity"
+      )
     slot
 </template>
 
@@ -14,6 +24,10 @@ svg(
 export default {
   name: "IconBase",
   props: {
+    iconName: {
+      type: String,
+      default: "",
+    },
     width: {
       type: [Number, String],
       default: 30,
@@ -22,17 +36,35 @@ export default {
       type: [Number, String],
       default: 30,
     },
-    iconName: {
-      type: String,
-      default: "",
-    },
+
     fill: {
       type: String,
       default: "transparent",
     },
+    fillOpacity: {
+      type: [Number, String],
+      default: 1,
+    },
+
     stroke: {
       type: String,
       default: "currentColor",
+    },
+    strokeWidth: {
+      type: [Number, String],
+      default: "5",
+    },
+    strokeLinecap: {
+      type: String,
+      default: "butt", // butt, square, round
+    },
+    strokeLinejoin: {
+      type: String,
+      default: "miter", // miter, round, bevel
+    },
+    strokeOpacity: {
+      type: [Number, String],
+      default: 1,
     },
   },
 }

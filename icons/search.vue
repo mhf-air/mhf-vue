@@ -1,6 +1,6 @@
 <template lang="pug">
   IconBase(
-      iconName="menu"
+      iconName="search"
 
       :width="width"
       :height="height"
@@ -14,16 +14,15 @@
       :stroke-linejoin="strokeLinejoin"
       :stroke-opacity="strokeOpacity"
       )
-    line(x1="10" y1="30" x2="90" y2="30")
-    line(x1="10" y1="50" x2="90" y2="50")
-    line(x1="10" y1="70" x2="90" y2="70")
+    circle(cx="35" cy="35" r="30")
+    line(x1="57" y1="57" x2="90" y2="90")
 </template>
 
 <script>
 import IconBase from "./aa-icon-base.vue"
 
 export default {
-  name: "icon-menu",
+  name: "icon-search",
   props: {
     ...IconBase.props,
   },

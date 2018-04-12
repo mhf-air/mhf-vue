@@ -19,13 +19,16 @@ export function use(Vue, componentList) {
 // component list
 import V from "./v.vue"
 import H from "./h.vue"
+import Switch from "./switch.vue"
 
 export {
   V,
   H,
+  Switch,
 }
 
 const components = [
   V,
   H,
+  Switch,
 ]

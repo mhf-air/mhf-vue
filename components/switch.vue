@@ -1,7 +1,7 @@
 <template lang="pug">
 div.g-relative(@click="toggle" :style="styleTrack")
-  div.g-absolute(v-show="isOn" :style="styleThumb")
-  div.g-absolute(v-show="!isOn" :style="styleThumb")
+  div.g-absolute(v-show="on" :style="styleThumb")
+  div.g-absolute(v-show="!on" :style="styleThumb")
 </template>
 
 <script>
@@ -66,7 +66,7 @@ export default {
       if (this.theme === "light") {
         if (this.isDisabled) {
           result.backgroundColor = light.track.disabled
-        } else if (this.isOn) {
+        } else if (this.on) {
           result.backgroundColor = light.track.on
         } else {
           result.backgroundColor = light.track.off
@@ -74,7 +74,7 @@ export default {
       } else {
         if (this.isDisabled) {
           result.backgroundColor = dark.track.disabled
-        } else if (this.isOn) {
+        } else if (this.on) {
           result.backgroundColor = dark.track.on
         } else {
           result.backgroundColor = dark.track.off
@@ -93,7 +93,7 @@ export default {
         boxShadow: "0px 1px 5px",
       }
 
-      if (this.isOn) {
+      if (this.on) {
         result.right = 0
       } else {
         result.left = 0
@@ -102,7 +102,7 @@ export default {
       if (this.theme === "light") {
         if (this.isDisabled) {
           result.backgroundColor = light.thumb.disabled
-        } else if (this.isOn) {
+        } else if (this.on) {
           result.backgroundColor = light.thumb.on
         } else {
           result.backgroundColor = light.thumb.off
@@ -110,7 +110,7 @@ export default {
       } else {
         if (this.isDisabled) {
           result.backgroundColor = dark.thumb.disabled
-        } else if (this.isOn) {
+        } else if (this.on) {
           result.backgroundColor = dark.thumb.on
         } else {
           result.backgroundColor = dark.thumb.off
@@ -122,9 +122,19 @@ export default {
   methods: {
     toggle(){
       if (!this.isDisabled) {
-        this.isOn = !this.isOn
+        this.on = !this.on
+        this.$emit("toggle", this.on)
       }
     },
+  },
+  data() {
+    return {
+      on: this.isOn,
+    }
+  },
+  model: {
+    prop: "on",
+    event: "toggle",
   },
 }
 </script>

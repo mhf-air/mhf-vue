@@ -5,7 +5,7 @@ svg(
     :width="width"
     :height="height"
     )
-  title(:id="iconName") {{ iconName }} icon
+  //- title(:id="iconName") {{ iconName }} icon
 
   g(
       :fill="fill"

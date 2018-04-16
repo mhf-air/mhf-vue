@@ -1,6 +1,6 @@
 <template lang="pug">
   IconBase(
-      iconName="square-bracket"
+      iconName="angle-bracket"
 
       :width="width"
       :height="height"
@@ -36,7 +36,7 @@
 import IconBase from "./aa-icon-base.vue"
 
 export default {
-  name: "icon-square-bracket",
+  name: "icon-angle-bracket",
   props: {
     ...IconBase.props,
     direction: {

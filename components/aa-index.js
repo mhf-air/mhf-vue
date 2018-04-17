@@ -20,15 +20,21 @@ export function use(Vue, componentList) {
 import V from "./v.vue"
 import H from "./h.vue"
 import Switch from "./switch.vue"
+import Carousel from "./carousel.vue"
+import CarouselItem from "./carousel-item.vue"
 
 export {
   V,
   H,
   Switch,
+  Carousel,
+  CarouselItem,
 }
 
 const components = [
   V,
   H,
   Switch,
+  Carousel,
+  CarouselItem,
 ]

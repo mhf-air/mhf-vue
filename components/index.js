@@ -16,17 +16,29 @@ export function use(Vue, componentList) {
   })
 }
 
-// component list
-import V from "./v.vue"
-import H from "./h.vue"
-import Switch from "./switch.vue"
-import Carousel from "./carousel.vue"
-import CarouselItem from "./carousel-item.vue"
+// basic
+import V from "./basic/v.vue"
+import H from "./basic/h.vue"
+
+// data
+
+// form
+import Switch from "./form/switch.vue"
+
+// navigation
+
+// notice
+
+// other
+import Carousel from "./other/carousel.vue"
+import CarouselItem from "./other/carousel-item.vue"
 
 export {
   V,
   H,
+
   Switch,
+
   Carousel,
   CarouselItem,
 }
@@ -34,7 +46,9 @@ export {
 const components = [
   V,
   H,
+
   Switch,
+
   Carousel,
   CarouselItem,
 ]

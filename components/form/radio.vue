@@ -1,48 +1,26 @@
 <template lang="pug">
-div.g-relative(@click="toggle" :style="styleTrack")
-  div.g-absolute(v-show="on" :style="styleThumb")
-  div.g-absolute(v-show="!on" :style="styleThumb")
+label.label
+  | {{ isFrontLabel ? label : "" }}
+  input.input(
+      type="radio"
+      v-bind="$attrs"
+      :style="inputStyle"
+      :name="name"
+      )
+  | {{ isFrontLabel ? "" : label }}
 </template>
 
 <script>
-let light = {
-  thumb: {
-    on: "#009688",
-    off: "#fafafa",
-    disabled: "#bdbdbd",
-  },
-  track: {
-    on: "#00968880",
-    off: "#00000061",
-    disabled: "#0000001e",
-  },
-}
-
-let dark = {
-  thumb: {
-    on: "#80cbc4",
-    off: "#bdbdbd",
-    disabled: "#424242",
-  },
-  track: {
-    on: "#80cbc480",
-    off: "#ffffff4d",
-    disabled: "#ffffff1a",
-  },
-}
+// usage: use font-size to change size
 
 export default {
   name: "g-radio",
   props: {
-    width: {
-      type: Number,
-      default: 50,
+    label: {
+      type: String,
+      default: "",
     },
-    height: {
-      type: Number,
-      default: 20,
-    },
-    isOn: {
+    isFrontLabel: {
       type: Boolean,
       default: false,
     },
@@ -53,91 +31,67 @@ export default {
     theme: {
       type: String,
       default: "light", // light, dark
-    }
-  },
-  computed: {
-    styleTrack() {
-      let result = {
-        width: this.width + "px",
-        height: this.height + "px",
-        borderRadius: `${this.height/2}px / 50%`,
-      }
-
-      if (this.theme === "light") {
-        if (this.isDisabled) {
-          result.backgroundColor = light.track.disabled
-        } else if (this.on) {
-          result.backgroundColor = light.track.on
-        } else {
-          result.backgroundColor = light.track.off
-        }
-      } else {
-        if (this.isDisabled) {
-          result.backgroundColor = dark.track.disabled
-        } else if (this.on) {
-          result.backgroundColor = dark.track.on
-        } else {
-          result.backgroundColor = dark.track.off
-        }
-      }
-      return result
-    },
-    styleThumb() {
-      let w = this.width / 2
-      let top = this.width / 4 - this.height / 2
-      let result = {
-        top: `-${top}px`,
-        bottom: `-${top}px`,
-        width: `${w}px`,
-        borderRadius: "50%",
-        boxShadow: "0px 1px 5px",
-      }
-
-      if (this.on) {
-        result.right = 0
-      } else {
-        result.left = 0
-      }
-
-      if (this.theme === "light") {
-        if (this.isDisabled) {
-          result.backgroundColor = light.thumb.disabled
-        } else if (this.on) {
-          result.backgroundColor = light.thumb.on
-        } else {
-          result.backgroundColor = light.thumb.off
-        }
-      } else {
-        if (this.isDisabled) {
-          result.backgroundColor = dark.thumb.disabled
-        } else if (this.on) {
-          result.backgroundColor = dark.thumb.on
-        } else {
-          result.backgroundColor = dark.thumb.off
-        }
-      }
-      return result
-    },
-  },
-  methods: {
-    toggle(){
-      if (!this.isDisabled) {
-        this.on = !this.on
-        this.$emit("toggle", this.on)
-      }
     },
   },
   data() {
     return {
-      on: this.isOn,
+      name: ""
     }
   },
-  model: {
-    prop: "on",
-    event: "toggle",
+  computed: {
+    inputStyle() {
+      let result = {
+      }
+
+      if (this.isFrontLabel) {
+        result.marginLeft = "0.3em"
+      } else {
+        result.marginRight = "0.3em"
+      }
+
+      return result
+    },
+  },
+  created() {
+    this.name = this.$parent.name
   },
 }
 </script>
 
 <style lang="stylus" scoped>
+.input
+  -webkit-appearance: none
+  -moz-appearance: none
+  appearance: none
+  vertical-align: middle
+  position: relative
+
+  border-radius: 50%
+  width: 1em
+  height: 1em
+  border: 0.1em solid #616161
+  transition: 200ms all linear
+  outline: none
+
+.input:checked
+  border-color: #009688
+
+.input::after
+  content: ""
+  position: absolute
+  border-radius: 50%
+  width: 50%
+  height: 50%
+  background: #009688
+  top: 50%
+  transform: translateY(-50%) 
+  left: 0
+  right: 0
+  margin-left: auto
+  margin-right: auto
+  visibility: hidden
+
+.input:checked::after
+  visibility: visible
+
 </style>

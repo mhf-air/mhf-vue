@@ -24,6 +24,8 @@ import H from "./basic/h.vue"
 
 // form
 import Switch from "./form/switch.vue"
+import RadioGroup from "./form/radio-group.vue"
+import Radio from "./form/radio.vue"
 
 // navigation
 
@@ -38,6 +40,8 @@ export {
   H,
 
   Switch,
+  RadioGroup,
+  Radio,
 
   Carousel,
   CarouselItem,
@@ -48,6 +52,8 @@ const components = [
   H,
 
   Switch,
+  RadioGroup,
+  Radio,
 
   Carousel,
   CarouselItem,

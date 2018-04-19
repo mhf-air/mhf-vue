@@ -1,18 +1,18 @@
 <template lang="pug">
-div.root.g-relative(
+div.root.relative(
       @mouseenter="clearTimer"
       @mouseleave="addTimer"
       )
   slot
-  icon-angle-bracket.angle.angle-left.g-absolute(
+  icon-angle-bracket.angle.angle-left.absolute(
       direction="left" width="20"
       @click.native="prev"
       )
-  icon-angle-bracket.angle.angle-right.g-absolute(
+  icon-angle-bracket.angle.angle-right.absolute(
       direction="right" width="20"
       @click.native="next"
       )
-  g-h.indicator-group.g-absolute(j-c="center")
+  g-h.indicator-group.absolute(j-c="center")
     div.indicator(
         v-for="n in pageCount"
         :key="n"
@@ -99,6 +99,12 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.relative
+  position: relative
+
+.absolute
+  position: absolute
+
 .root
   overflow: hidden
   &:hover .angle

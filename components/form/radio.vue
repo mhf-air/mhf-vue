@@ -1,7 +1,7 @@
 <template lang="pug">
-div.relative(@click="toggle" :style="styleTrack")
-  div.absolute(v-show="on" :style="styleThumb")
-  div.absolute(v-show="!on" :style="styleThumb")
+div.g-relative(@click="toggle" :style="styleTrack")
+  div.g-absolute(v-show="on" :style="styleThumb")
+  div.g-absolute(v-show="!on" :style="styleThumb")
 </template>
 
 <script>
@@ -32,7 +32,7 @@ let dark = {
 }
 
 export default {
-  name: "g-switch",
+  name: "g-radio",
   props: {
     width: {
       type: Number,
@@ -140,9 +140,4 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.relative
-  position: relative
-
-.absolute
-  position: absolute
 </style>

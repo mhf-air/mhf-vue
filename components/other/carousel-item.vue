@@ -1,5 +1,5 @@
 <template lang="pug">
-div.root.g-absolute
+div.root.absolute
   slot
 </template>
 
@@ -28,4 +28,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+.relative
+  position: relative
+
+.absolute
+  position: absolute
 </style>
